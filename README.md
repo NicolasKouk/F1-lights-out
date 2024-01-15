@@ -1,2 +1,3 @@
 # F1-lights-out
-Reflex test with F1 lights 
+
+React when all lights turn green! 
