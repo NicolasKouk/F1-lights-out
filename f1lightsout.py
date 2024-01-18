@@ -2,6 +2,23 @@ import time
 import random
 from termcolor import colored
 
+def read_players_file():
+	try:
+		f = open("players.txt", "r")
+		for x in f:
+			x = x.strip()
+			names.append(x)
+		f.close()
+	except:
+		f = open("players.txt", "w")
+		f.close()
+
+def update_players_file():
+	f = open("players.txt", "w")
+	for p in names:
+		f.write(p + '\n')
+	f.close()
+
 # prints lights n seconds to go
 def print_lights(n):
 	print(25*'\n')
@@ -41,25 +58,85 @@ def print_lights(n):
 	if n > 0:
 		print()
 
-print_lights(5)
-time.sleep(1)
-print_lights(4)
-time.sleep(1)
-print_lights(3)
-time.sleep(1)
-print_lights(2)
-time.sleep(1)
-print_lights(1)
-time.sleep(2.8*random.random() + 0.2)
-print_lights(0)
-print(colored('GO!!!', "white"))
 
-start = time.time()
-a = input()
-end = time.time()
+names = []
 
-reactime = end - start
-if reactime > 0.05:
-	print(reactime)
-else:
-	print(colored("FALSE START", "white"))
+read_players_file()
+try:
+	active_player = names[0]
+except IndexError:
+	active_player = ''
+
+running = True
+while (running):
+	print(25*'\n')
+	if names == []:
+		print(colored("Hi! \n", "white"))
+	else:
+		print(colored("Hi, " + active_player +"! \n", "white"))
+	print(colored("Press Enter when all lights turn green.\n", "white"))
+	print(colored("Press 0 if it's not you", "white"))
+	print(colored("Press 1 to start playing", "white"))
+	print(colored("Press 3 to see the highscores", "white"))
+	a = input()
+	print('\n')
+	
+	if a == '1':
+		print_lights(5)
+		time.sleep(1)
+		print_lights(4)
+		time.sleep(1)
+		print_lights(3)
+		time.sleep(1)
+		print_lights(2)
+		time.sleep(1)
+		print_lights(1)
+		time.sleep(2.8*random.random() + 0.2)
+		print_lights(0)
+		print(colored('GO!!!', "white"))
+		
+		start = time.time()
+		a = input()
+		end = time.time()
+		
+		reactime = end - start
+		if reactime > 0.05:
+			print(reactime)
+		else:
+			print(colored("FALSE START", "red"))
+		print(colored("\nPress Enter to play again", "white"))
+		a = input()
+		
+	elif a == '0':
+		if not names == []:
+			for i in range(len(names)):
+				print(str(i) + '. ' + names[i])
+			print("\nChoose your name")
+		else:
+			print("Type your name")
+		a = input()
+		if len(a) == 0:
+			continue
+		if a[0] == '-':
+				if not a[1:].isnumeric():
+					continue
+				a = int(a[1:])
+				if a >= len(names):
+					continue
+				names.pop(a)
+				if len(names) > 0:
+					active_player = names[0]
+				else:
+					active_player = ''
+				update_players_file()
+		elif a.isnumeric():
+			a = int(a)
+			if a < len(names):
+				active_player = names[a]
+		else:
+			if a not in names:
+				names.append(a)
+				update_players_file()
+			active_player = a
+		
+		
