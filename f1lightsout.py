@@ -2,6 +2,8 @@ import time
 import random
 from termcolor import colored
 
+names = []; leaderboard = []
+
 def read_players_file():
 	try:
 		f = open("players.txt", "r")
@@ -24,12 +26,25 @@ def read_leaderboard():
 		f = open("leaderboard.txt", "r")
 		for x in f:
 			x = x.split()
-			
+			leaderboard.append(x);
 		f.close()
 	except:
 		f = open("leaderboard.txt", "w")
 		f.close()
 
+
+def update_leaderboard():
+	f = open("leaderboard.txt", "w")
+	for x in leaderboard:
+		f.write(x[0] + x[1] + '\n')
+	f.close()
+
+
+def add_time(player, time):
+	for i in range(len(leaderboard)):
+		if leaderboard[i][1] > time:
+			leaderboard.insert(i, [player, time])
+			return
 
 # prints lights n seconds to go
 def print_lights(n):
@@ -71,13 +86,13 @@ def print_lights(n):
 		print()
 
 
-names = []
-
 read_players_file()
 try:
 	active_player = names[0]
 except IndexError:
 	active_player = ''
+
+read_leaderboard()
 
 running = True
 while (running):
@@ -114,6 +129,8 @@ while (running):
 		reactime = end - start
 		if reactime > 0.05:
 			print(reactime)
+			add_time(active_player, reactime)
+			update_leaderboard()
 		else:
 			print(colored("FALSE START", "red"))
 		print(colored("\nPress Enter to play again", "white"))
