@@ -19,6 +19,18 @@ def update_players_file():
 		f.write(p + '\n')
 	f.close()
 
+def read_leaderboard():
+	try:
+		f = open("leaderboard.txt", "r")
+		for x in f:
+			x = x.split()
+			
+		f.close()
+	except:
+		f = open("leaderboard.txt", "w")
+		f.close()
+
+
 # prints lights n seconds to go
 def print_lights(n):
 	print(25*'\n')
