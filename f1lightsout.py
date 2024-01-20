@@ -26,7 +26,7 @@ def read_leaderboard():
 		f = open("leaderboard.txt", "r")
 		for x in f:
 			x = x.split()
-			leaderboard.append(x);
+			leaderboard.append( [x[0], float(x[1])] );
 		f.close()
 	except:
 		f = open("leaderboard.txt", "w")
@@ -36,15 +36,30 @@ def read_leaderboard():
 def update_leaderboard():
 	f = open("leaderboard.txt", "w")
 	for x in leaderboard:
-		f.write(x[0] + x[1] + '\n')
+		f.write(str(x[0]) + ' ' + str(x[1]) + '\n')
 	f.close()
 
 
 def add_time(player, time):
 	for i in range(len(leaderboard)):
+#		print("leaderboard[",i,"][1] = ", leaderboard[i][1])
+#		print("time = ", time)
 		if leaderboard[i][1] > time:
 			leaderboard.insert(i, [player, time])
 			return
+
+	# if we reached this point, leaderboard must be empty or this was the worst time
+	# so we add the element at the end of the leaderboard
+	leaderboard.append([player, time]) 
+
+
+def print_leaderboard():
+	counter = 1
+	for x in leaderboard:
+		if counter == 10:
+			return
+		print( (counter == 10)*' ' + str(counter) + '. ' + x[0] + (15-len(x[0]))*' ' + str(x[1]))
+		counter += 1
 
 # prints lights n seconds to go
 def print_lights(n):
@@ -167,5 +182,11 @@ while (running):
 				names.append(a)
 				update_players_file()
 			active_player = a
-		
-		
+	
+	
+	elif a == '3':		
+		print_leaderboard()
+		print("\n\nPress Enter to go back in the main menu. ")
+		a = input()
+
+
