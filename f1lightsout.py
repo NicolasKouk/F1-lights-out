@@ -54,12 +54,15 @@ def add_time(player, time):
 
 
 def print_leaderboard():
+	print(10*'\n')
+	print("Leaderboard: ")
 	counter = 1
 	for x in leaderboard:
 		if counter == 10:
 			return
 		print( (counter == 10)*' ' + str(counter) + '. ' + x[0] + (15-len(x[0]))*' ' + str(x[1]))
 		counter += 1
+	print((10-counter)*'\n')
 
 # prints lights n seconds to go
 def print_lights(n):
@@ -143,6 +146,7 @@ while (running):
 		
 		reactime = end - start
 		if reactime > 0.05:
+			reactime = round(reactime,3)
 			print(reactime)
 			add_time(active_player, reactime)
 			update_leaderboard()
@@ -186,7 +190,10 @@ while (running):
 	
 	elif a == '3':		
 		print_leaderboard()
-		print("\n\nPress Enter to go back in the main menu. ")
+		print(colored("\n\nPress Enter to go back in the main menu. ", "white"))
 		a = input()
+		if a == "clear":
+			leaderboard = []
+			update_leaderboard()
 
 
