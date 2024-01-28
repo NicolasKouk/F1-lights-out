@@ -58,9 +58,9 @@ def print_leaderboard():
 	print("Leaderboard: ")
 	counter = 1
 	for x in leaderboard:
-		if counter == 10:
+		if counter == 11:
 			return
-		print( (counter == 10)*' ' + str(counter) + '. ' + x[0] + (15-len(x[0]))*' ' + str(x[1]))
+		print( (counter < 10)*' ' + str(counter) + '. ' + x[0] + (15-len(x[0]))*' ' + str(x[1]))
 		counter += 1
 	print((10-counter)*'\n')
 
