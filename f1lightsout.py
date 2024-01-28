@@ -58,9 +58,9 @@ def print_leaderboard():
 	print("Leaderboard: ")
 	counter = 1
 	for x in leaderboard:
-		if counter == 10:
+		if counter == 11:
 			return
-		print( (counter == 10)*' ' + str(counter) + '. ' + x[0] + (15-len(x[0]))*' ' + str(x[1]))
+		print( (counter < 10)*' ' + str(counter) + '. ' + x[0] + (15-len(x[0]))*' ' + str(x[1]))
 		counter += 1
 	print((10-counter)*'\n')
 
@@ -122,6 +122,7 @@ while (running):
 	print(colored("Press Enter when all lights turn green.\n", "white"))
 	print(colored("Press 0 if it's not you", "white"))
 	print(colored("Press 1 to start playing", "white"))
+	print(colored("Press 2 to see the story behind the game", "white"))
 	print(colored("Press 3 to see the highscores", "white"))
 	a = input()
 	print('\n')
@@ -196,4 +197,12 @@ while (running):
 			leaderboard = []
 			update_leaderboard()
 
+	elif a == '2':
+		print(20*'\n')
+		print(colored("Top F1 drivers need to have top reflexes to beat their opponents at the start of the race.", "white"))
+		print(colored("Do you have what it takes to take the advantage?", "white"))
+		print(colored("\nPress Enter when all lights turn green to accelerate!", "white"))
+		print(colored("\n\nMade by CaptainKouk", "white"))
+		print(colored("\nPress Enter to go back in the main menu.", "white"))
+		a = input()
 
