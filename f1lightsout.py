@@ -120,7 +120,10 @@ while (running):
 	else:
 		print(colored("Hi, " + active_player +"! \n", "white"))
 	print(colored("Press Enter when all lights turn green.\n", "white"))
-	print(colored("Press 0 if it's not you", "white"))
+	if names == []:
+		print(colored("Press 0 to set up a profile", "white"))
+	else:
+		print(colored("Press 0 if it's not you", "white"))
 	print(colored("Press 1 to start playing", "white"))
 	print(colored("Press 2 to see the story behind the game", "white"))
 	print(colored("Press 3 to see the highscores", "white"))
@@ -199,6 +202,7 @@ while (running):
 
 	elif a == '2':
 		print(20*'\n')
+		print(colored("F1 Lights Out\n", "white"))
 		print(colored("Top F1 drivers need to have top reflexes to beat their opponents at the start of the race.", "white"))
 		print(colored("Do you have what it takes to take the advantage?", "white"))
 		print(colored("\nPress Enter when all lights turn green to accelerate!", "white"))
