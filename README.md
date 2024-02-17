@@ -10,4 +10,4 @@ React when all lights turn green!
 
 ![greenlights](assets/green_lights450x158.png)
 
-Note: If you are using a laptop, it is recommended to disable Color Mode via settings by typing `1N`. 
+Note: If you are using a computer, it is recommended to disable Color Mode via settings by typing `1N`. 
