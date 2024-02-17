@@ -4,6 +4,8 @@ from termcolor import colored
 
 names = []; leaderboard = []
 
+colormode = True
+
 def read_players_file():
 	try:
 		f = open("players.txt", "r")
@@ -82,23 +84,42 @@ def print_lights(n):
 					if n <= 1:
 						r1 = 3*'#'
 	
-	print(colored(" ___     ___     ___     ___     ___ ", "white"))
-	print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
-	print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
-	print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
-	print(colored("|   |   |   |   |   |   |   |   |   |", "white"))
-	print(colored("|   |   |   |   |   |   |   |   |   |", "white"))
+	if colormode:
+		print(colored(" ___     ___     ___     ___     ___ ", "white"))
+		print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
+		print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
+		print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
+		print(colored("|   |   |   |   |   |   |   |   |   |", "white"))
+		print(colored("|   |   |   |   |   |   |   |   |   |", "white"))
+	else:
+		print(" ___     ___     ___     ___     ___ ")
+		print("|"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|")
+		print("|"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|")
+		print("|"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|")
+		print("|   |   |   |   |   |   |   |   |   |")
+		print("|   |   |   |   |   |   |   |   |   |")
 	
 	if n > 0:
-		print(colored("|", "white") + colored(r1, "red") + colored("|   |", "white") + colored(r2, "red") + colored("|   |", "white")+ colored(r3, "red") + colored("|   |", "white")+ colored(r4, "red") + colored("|   |", "white")+ colored(r5, "red") + colored("|", "white"))
-		print(colored("|", "white") + colored(r1, "red") + colored("|   |", "white") + colored(r2, "red") + colored("|   |", "white")+ colored(r3, "red") + colored("|   |", "white")+ colored(r4, "red") + colored("|   |", "white")+ colored(r5, "red") + colored("|", "white"))
-		print(colored("|", "white") + colored(r1, "red") + colored("|   |", "white") + colored(r2, "red") + colored("|   |", "white")+ colored(r3, "red") + colored("|   |", "white")+ colored(r4, "red") + colored("|   |", "white")+ colored(r5, "red") + colored("|", "white"))
+		if colormode:
+			print(colored("|", "white") + colored(r1, "red") + colored("|   |", "white") + colored(r2, "red") + colored("|   |", "white")+ colored(r3, "red") + colored("|   |", "white")+ colored(r4, "red") + colored("|   |", "white")+ colored(r5, "red") + colored("|", "white"))
+			print(colored("|", "white") + colored(r1, "red") + colored("|   |", "white") + colored(r2, "red") + colored("|   |", "white")+ colored(r3, "red") + colored("|   |", "white")+ colored(r4, "red") + colored("|   |", "white")+ colored(r5, "red") + colored("|", "white"))
+			print(colored("|", "white") + colored(r1, "red") + colored("|   |", "white") + colored(r2, "red") + colored("|   |", "white")+ colored(r3, "red") + colored("|   |", "white")+ colored(r4, "red") + colored("|   |", "white")+ colored(r5, "red") + colored("|", "white"))
+		else:
+			print("|" + r1 + "|   |" + r2 + "|   |"+ r3 + "|   |"+ r4 + "|   |"+ r5 + "|")
+			print("|" + r1 + "|   |" + r2 + "|   |"+ r3 + "|   |"+ r4 + "|   |"+ r5 + "|")
+			print("|" + r1 + "|   |" + r2 + "|   |"+ r3 + "|   |"+ r4 + "|   |"+ r5 + "|")
 	else:
-		print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
-		print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
-		print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
-		
-	print(colored("|___|   |___|   |___|   |___|   |___|", "white"))
+		if colormode:
+			print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
+			print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
+			print(colored("|", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|   |", "white")+ colored(g, "green") + colored("|", "white"))
+		else:
+			print("|"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|")
+			print("|"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|")
+			print("|"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|   |"+ g + "|")
+
+	if colormode: print(colored("|___|   |___|   |___|   |___|   |___|", "white"))
+	else: print("|___|   |___|   |___|   |___|   |___|")
 	print(2*'\n')
 	if n > 0:
 		print()
@@ -116,17 +137,27 @@ running = True
 while (running):
 	print(25*'\n')
 	if names == []:
-		print(colored("Hi! \n", "white"))
+		if colormode: print(colored("Hi! \n", "white"))
+		else: print("Hi! \n")
 	else:
-		print(colored("Hi, " + active_player +"! \n", "white"))
-	print(colored("Press Enter when all lights turn green.\n", "white"))
+		if colormode: print(colored("Hi, " + active_player +"! \n", "white"))
+		else: print("Hi, " + active_player +"! \n")
+	if colormode: print(colored("Press Enter when all lights turn green.\n", "white"))
+	else: print("Press Enter when all lights turn green.\n")
 	if names == []:
-		print(colored("Press 0 to set up a profile", "white"))
+		if colormode: print(colored("Press 0 to set up a profile", "white"))
+		else: print("Press 0 to set up a profile")
 	else:
-		print(colored("Press 0 if it's not you", "white"))
-	print(colored("Press 1 to start playing", "white"))
-	print(colored("Press 2 to see the story behind the game", "white"))
-	print(colored("Press 3 to see the highscores", "white"))
+		if colormode: print(colored("Press 0 if it's not you", "white"))
+		else: print("Press 0 if it's not you")
+	if colormode: print(colored("Press 1 to start playing", "white"))
+	else: print("Press 1 to start playing")
+	if colormode: print(colored("Press 2 to see the story behind the game", "white"))
+	else: print("Press 2 to see the story behind the game")
+	if colormode: print(colored("Press 3 to see the highscores", "white"))
+	else: print("Press 3 to see the highscores")
+	if colormode: print(colored("Press 4 to go to settings", "white"))
+	else: print("Press 4 to go to settings")
 	a = input()
 	print('\n')
 	
@@ -142,7 +173,8 @@ while (running):
 		print_lights(1)
 		time.sleep(2.8*random.random() + 0.2)
 		print_lights(0)
-		print(colored('GO!!!', "white"))
+		if colormode: print(colored('GO!!!', "white"))
+		else: print('GO!!!')
 		
 		start = time.time()
 		a = input()
@@ -155,8 +187,10 @@ while (running):
 			add_time(active_player, reactime)
 			update_leaderboard()
 		else:
-			print(colored("FALSE START", "red"))
-		print(colored("\nPress Enter to play again", "white"))
+			if colormode: print(colored("FALSE START", "red"))
+			else: print("FALSE START")
+		if colormode: print(colored("\nPress Enter to play again", "white"))
+		else: print("\nPress Enter to play again")
 		a = input()
 		
 	elif a == '0':
@@ -194,7 +228,8 @@ while (running):
 	
 	elif a == '3':		
 		print_leaderboard()
-		print(colored("\n\nPress Enter to go back in the main menu. ", "white"))
+		if colormode: print(colored("\n\nPress Enter to go back in the main menu. ", "white"))
+		else: print("\n\nPress Enter to go back in the main menu. ")
 		a = input()
 		if a == "clear":
 			leaderboard = []
@@ -202,11 +237,38 @@ while (running):
 
 	elif a == '2':
 		print(20*'\n')
-		print(colored("F1 Lights Out\n", "white"))
-		print(colored("Top F1 drivers need to have top reflexes to beat their opponents at the start of the race.", "white"))
-		print(colored("Do you have what it takes to take the advantage?", "white"))
-		print(colored("\nPress Enter when all lights turn green to accelerate!", "white"))
-		print(colored("\n\nMade by CaptainKouk", "white"))
-		print(colored("\nPress Enter to go back in the main menu.", "white"))
+		if colormode:
+			print(colored("F1 Lights Out\n", "white"))
+			print(colored("Top F1 drivers need to have top reflexes to beat their opponents at the start of the race.", "white"))
+			print(colored("Do you have what it takes to take the advantage?", "white"))
+			print(colored("\nPress Enter when all lights turn green to accelerate!", "white"))
+			print(colored("\n\nMade by CaptainKouk", "white"))
+			print(colored("\nPress Enter to go back in the main menu.", "white"))
+		else:
+			print("F1 Lights Out\n")
+			print("Top F1 drivers need to have top reflexes to beat their opponents at the start of the race.")
+			print("Do you have what it takes to take the advantage?")
+			print("\nPress Enter when all lights turn green to accelerate!")
+			print("\n\nMade by CaptainKouk")
+			print("\nPress Enter to go back in the main menu.")
 		a = input()
+	
+	elif a == '4':
+		print(20*'\n')
+		if colormode: print(colored("Settings\n\n\n", "white"))
+		else: print("Settings\n\n\n")
+		if colormode: print(colored("1. Color mode        Y/N\n", "white"))
+		else: print("1. Color mode        Y/N\n")
+
+		print(3*'\n')
+		if colormode: print(colored("Type the number of the setting and then the letter (Y for yes or N for no)", "white"))
+		else: print("Type the number of the setting and then the letter (Y for yes or N for no)")
+		a = input('\n').upper()
+
+		if a == '1Y':
+			colormode = True
+		elif a == '1N':
+			colormode = False
+
+
 
